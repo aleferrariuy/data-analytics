@@ -1,0 +1,14 @@
+---
+title: "venta-cursos"
+author: "Alejandro Ferrari"
+date: "2025-08-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+```
