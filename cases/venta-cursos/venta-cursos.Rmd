@@ -1,9 +1,9 @@
 ---
 title: "Informe de Ventas"
-date: "2025-08-08"
-author: "Alejandro Ferrari"
 output: html_document
 ---
+
+Autor: Alejandro Ferrari - Fecha: 2025/08/09
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -13,6 +13,9 @@ library(readxl)
 library(ggplot2)
 ```
 
+## Metodos de pago
+
+Los datos, dejan ver a través de la gráfica que la _transferencia bancaria_ se viene imponiendo como  método electrónico preferido para el pago de nuestros productos.
 ```{r, echo=FALSE}
 # Carga de la hoja BD, del archivo venta-cursos.xlsx
 archivoi <- "venta-cursos.xlsx"
@@ -32,15 +35,16 @@ grafico_barras_i <- ggplot(
 ) +
   geom_bar(
     stat = "identity",
-    fill = "steelblue"
+    fill = "black"
   ) +
   labs(
     title = "Ventas Totales por Método de Pago",
     x = "Método de Pago",
     y = "Ventas en Euros"
   ) +
-  theme_minimal()
+  theme_light()
 
 # Mostrar el gráfico
 print(grafico_barras_i)
 ```
+
