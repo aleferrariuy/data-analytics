@@ -1,14 +1,46 @@
 ---
-title: "venta-cursos"
-author: "Alejandro Ferrari"
+title: "Informe de Ventas"
 date: "2025-08-08"
+author: "Alejandro Ferrari"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# Carga de librerías necesarias
+library(readxl)
+library(ggplot2)
 ```
 
+```{r, echo=FALSE}
+# Carga de la hoja BD, del archivo venta-cursos.xlsx
+archivoi <- "venta-cursos.xlsx"
+datosi <- read_excel(archivoi, sheet = "BD")
+archivoii <- "venta-cursos.csv"
+datosii <- read_excel(archivoi)
 
-```{r}
+# control para ver si los archivos cargaron correctamente sus datos
+#head(datosi)
+#head(datosii)
+```
+
+```{r, echo=FALSE}
+grafico_barras_i <- ggplot(
+  data = datosi,
+  aes(x = MétodoDePago, y = Valor)
+) +
+  geom_bar(
+    stat = "identity",
+    fill = "steelblue"
+  ) +
+  labs(
+    title = "Ventas Totales por Método de Pago",
+    x = "Método de Pago",
+    y = "Ventas en Euros"
+  ) +
+  theme_minimal()
+
+# Mostrar el gráfico
+print(grafico_barras_i)
 ```
