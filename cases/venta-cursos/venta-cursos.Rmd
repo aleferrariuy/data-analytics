@@ -3,19 +3,17 @@ title: "Informe de Ventas"
 output: html_document
 ---
 
-Autor: Alejandro Ferrari - Fecha: 2025/08/09
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 # Carga de librerías necesarias
 library(readxl)
 library(ggplot2)
+library(dplyr)
 ```
 
 ## Metodos de pago
 
-Los datos, dejan ver a través de la gráfica que la _transferencia bancaria_ se viene imponiendo como  método electrónico preferido para el pago de nuestros productos.
 ```{r, echo=FALSE}
 # Carga de la hoja BD, del archivo venta-cursos.xlsx
 archivoi <- "venta-cursos.xlsx"
@@ -28,14 +26,59 @@ datosii <- read_excel(archivoi)
 #head(datosii)
 ```
 
+Porcentaje de las ventas totales en cada país. En ventas ponderadas, a liderado _Colombia con un 27% del total_, sin embargo es Chile quien ocupa el último lugar con solo un 9%.
+
 ```{r, echo=FALSE}
+datos_anillo <- datosi %>%
+  group_by(País) %>%
+  summarise(ValorTotal = sum(Valor)) %>%
+  mutate(
+    Porcentaje = ValorTotal / sum(ValorTotal),
+    PosicionEtiqueta = 1 - (cumsum(Porcentaje) - Porcentaje / 2)
+  )
+
+#datosi$MétodoDePago <- reorder(
+#  x = datosi$País,
+#  X = Porcentaje
+#)
+
+grafico_anillo <- ggplot(
+  datos_anillo,
+  aes(x = 2, y = Porcentaje, fill = País)
+) +
+  geom_bar(
+    stat = "identity",
+    width = 1,
+    color = "white"
+  ) +
+  geom_text(
+    aes(y = PosicionEtiqueta, label = paste0(round(Porcentaje * 100), "%")),
+    color = "black",
+    size = 4
+  ) +
+  coord_polar(theta = "y", start = 0) +
+  xlim(0.5, 2.5) +
+  theme_void() +
+  labs(title = "Distribución de las Ventas por País")
+
+print(grafico_anillo)
+```
+
+Los datos, dejan ver a través de la gráfica que la _transferencia bancaria_ se viene imponiendo como  método electrónico preferido para el pago de nuestros productos.
+
+```{r, echo=FALSE}
+datosi$MétodoDePago <- reorder(
+  x = datosi$MétodoDePago,
+  X = -datosi$Valor
+)
+
 grafico_barras_i <- ggplot(
   data = datosi,
   aes(x = MétodoDePago, y = Valor)
 ) +
   geom_bar(
     stat = "identity",
-    fill = "black"
+    fill = "#C25580"
   ) +
   labs(
     title = "Ventas Totales por Método de Pago",
@@ -48,3 +91,6 @@ grafico_barras_i <- ggplot(
 print(grafico_barras_i)
 ```
 
+---
+
+Autor: Alejandro Ferrari - Fecha: 2025/08/09
