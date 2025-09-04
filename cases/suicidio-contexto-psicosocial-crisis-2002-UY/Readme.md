@@ -21,4 +21,12 @@ Fuente: Instituto Nacional de Estadística (INE) - [Link...](https://www.gub.uy/
 
 En el registro histórico de IPC (indice de precios al consumo) se observa una clara tendencia al incremento, lo que se vería reflejado en el costo de vida.
 
+
+
+
+La cantidad de bienes y servicios que componen la canasta de consumo promedio de los hogares, que se podía adquirir con 100 pesos uruguayos en Enero del año 1997, tiene un costo estimado de 310,9 pesos uruguayos en Diciembre del 2010. La tasa de variación del IPC en el periodo fue de 210,9%.
+Como la fecha inicial es anterior a diciembre del 2010, no hay información desagregada para Montevideo e Interior.
+
+https://www7.ine.gub.uy/Dashboard-IPC/
+
 ---
