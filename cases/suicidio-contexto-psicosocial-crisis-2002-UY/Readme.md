@@ -19,6 +19,6 @@ Desarrollo propio
 
 Fuente: Instituto Nacional de Estadística (INE) - [Link...](https://www.gub.uy/instituto-nacional-estadistica/datos-y-estadisticas/datos/series-historicas-ipc-base-marzo-1997100)
 
-En el registro hístorico de IPC (indice de precios al consumo) se observa una clara tendencia al incremento, lo que se vería reflejado en el costo de vida.
+En el registro histórico de IPC (indice de precios al consumo) se observa una clara tendencia al incremento, lo que se vería reflejado en el costo de vida.
 
 ---
