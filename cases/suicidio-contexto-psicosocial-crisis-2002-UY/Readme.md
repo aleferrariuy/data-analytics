@@ -1,6 +1,8 @@
 # Suicidio en Uruguay
 ## Contexto psicosocial vinculado a la "crisis económica de 2002"
 
+Estudio en proceso... 🎠🎠🎠...
+
 ![](pbi-1996-2010.png)
 
 ![](pbi-2004-2024.png)
